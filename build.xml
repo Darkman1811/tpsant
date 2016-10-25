@@ -1,19 +1,17 @@
 <?xml version="1.0" ?>
 <project name="Hello Word Project" default="info">
 	
-	
-    
+   
 	
 	<target  name="info">		
 		<echo> Welcome to apache Ant </echo>
 
-        <condition  property="port.isone"  value="dodo" else="baba">      			
-			<istrue  value="false"/>
+        <condition  property="port.isone"  value="Ok" else="NoOk">      			
+			<equals  arg1="abdoulaye" arg2="abdoulaye2" />
 	    </condition>	 
         <echo message=" server online = ${port.isone} "/>
 		
 	</target>
 
-	
 		
 </project>
