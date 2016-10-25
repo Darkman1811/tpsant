@@ -6,8 +6,9 @@
 	<target  name="info">		
 		<echo> Welcome to apache Ant </echo>
 
-        <condition  property="port.isone"  value="contains" else="dontcontains">      			
-			<contains  string="yacine va au marche" substring="yacines" />
+        <condition  property="port.isone"  value="less" else="more">      			
+			<length  length="41" when="less" file="./file.txt"/>
+			
 	    </condition>	 
         <echo message=" valeur = ${port.isone} "/>
 		
