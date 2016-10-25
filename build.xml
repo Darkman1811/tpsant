@@ -5,11 +5,11 @@
 	
 	<target  name="info">		
 		<echo> Welcome to apache Ant </echo>
-
-        <condition  property="port.isone"  value="Ok" else="NoOk">      			
-			<equals  arg1="abdoulaye" arg2="abdoulaye2" />
+<property file="build.properties"/>
+        <condition  property="port.isone"  value="exist" else="dontexist">      			
+			<isset  property="test" />
 	    </condition>	 
-        <echo message=" server online = ${port.isone} "/>
+        <echo message=" valeur = ${port.isone} "/>
 		
 	</target>
 
