@@ -5,9 +5,9 @@
 	
 	<target  name="info">		
 		<echo> Welcome to apache Ant </echo>
-<property file="build.properties"/>
-        <condition  property="port.isone"  value="exist" else="dontexist">      			
-			<isset  property="test" />
+
+        <condition  property="port.isone"  value="true" else="false">      			
+			<istrue  value="false" />
 	    </condition>	 
         <echo message=" valeur = ${port.isone} "/>
 		
