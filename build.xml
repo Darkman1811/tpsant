@@ -6,8 +6,8 @@
 	<target  name="info">		
 		<echo> Welcome to apache Ant </echo>
 
-        <condition  property="port.isone"  value="match" else="dontmatch">      			
-			<filesmatch  file1="./file1.txt" file2="./dir1/file1.txt" />
+        <condition  property="port.isone"  value="contains" else="dontcontains">      			
+			<contains  string="yacine va au marche" substring="yacines" />
 	    </condition>	 
         <echo message=" valeur = ${port.isone} "/>
 		
