@@ -7,13 +7,10 @@
 	<target  name="info">		
 		<echo> Welcome to apache Ant </echo>
 
-        <property file="build.properties" />
         <condition  property="port.isone"  value="dodo" else="baba">      			
-			<istrue  value="yes"/>
+			<istrue  value="false"/>
 	    </condition>	 
         <echo message=" server online = ${port.isone} "/>
-        <input message="Veuillez entrer votre nom d'utilisateur." addproperty="dev.username"/> 
-        <echo message="${dev.username}"/>
 		
 	</target>
 
