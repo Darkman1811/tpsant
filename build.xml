@@ -6,11 +6,11 @@
 	<target  name="info">		
 		<echo> Welcome to apache Ant </echo>
 
-        <condition  property="port.isone"  value="less" else="more">      			
-			<length  length="41" when="less" file="./file.txt"/>
+        <condition  property="port.isone"  value="online" else="offline">      			
+			<http  url="http://172.17.0.3" />
 			
 	    </condition>	 
-        <echo message=" valeur = ${port.isone} "/>
+        <echo message=" server is  ${port.isone} "/>
 		
 	</target>
 
