@@ -6,11 +6,10 @@
 	<target  name="info">		
 		<echo> Welcome to apache Ant </echo>
 
-        <condition  property="port.isone"  value="online" else="offline">      			
-			<http  url="http://172.17.0.3" />
-			
+        <condition  property="port.isone"  value="open" else="closed">      			
+			<socket  server="172.17.0.2" port="80"/>			
 	    </condition>	 
-        <echo message=" server is  ${port.isone} "/>
+        <echo message=" port is  ${port.isone} "/>
 		
 	</target>
 
