@@ -1,4 +1,0 @@
-bobo  
-baba
-sdqsdf
-adqsfqsdf

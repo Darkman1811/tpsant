@@ -13,6 +13,7 @@
 
         	<include name="pers*.java"/>
             <include name="**/*.txt"/>
+            <include name="**/*.tar*"/>
         </patternset>
 
         <patternset id="etudpat">
@@ -22,8 +23,8 @@
 
         <fileset dir="./src" id="sourcepers">
        
-        	     <patternset refid="perspat"/>          	     
-        	     <different targetdir="./dir1"/>
+        	     <patternset refid="perspat"/>    
+        	     <size value="1" units="M" when="more"/>     
             
         </fileset>
 
