@@ -10,18 +10,20 @@
         <property file="build.properties" />
 
         <patternset id="perspat">
+
         	<include name="pers*.java"/>
+
         </patternset>
 
-        <patternset id="perspat">
-        	<include name="*etud.java"/>
+        <patternset id="etudpat">
+        	<include name="*etud*.java"/>
         </patternset>
         
 
         <fileset dir="./src" id="sourcepers">
-        	
-        	     <patternset refid="perspat"/>       	
-
+                	
+        	     <patternset refid="perspat"/>          	     
+        	     <contains text="bobo"/> 	
             
         </fileset>
 
