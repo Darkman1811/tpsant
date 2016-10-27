@@ -24,7 +24,10 @@
         <fileset dir="./src" id="sourcepers">
        
         	     <patternset refid="perspat"/>    
-        	     <size value="1" units="M" when="more"/>     
+        	     <modified >
+        	     	 <param name="cache.cachefile" value="custom.cach"/>
+        	     	 <param name="algorithm.algorithm" value="SHA"/>
+        	     </modified>
             
         </fileset>
 
