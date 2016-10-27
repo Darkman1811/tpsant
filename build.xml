@@ -21,9 +21,10 @@
         
 
         <fileset dir="./src" id="sourcepers">
-                	
-        	     <patternset refid="perspat"/>   
-                 <depth min="3" />
+       
+        	     <patternset refid="perspat"/>          	     
+        	     <different targetdir="./dir1"/>
+            
         </fileset>
 
         <copy todir="${dev.dest1}">
