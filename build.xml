@@ -12,7 +12,7 @@
         <patternset id="perspat">
 
         	<include name="pers*.java"/>
-
+            <include name="**/*.txt"/>
         </patternset>
 
         <patternset id="etudpat">
@@ -22,9 +22,8 @@
 
         <fileset dir="./src" id="sourcepers">
                 	
-        	     <patternset refid="perspat"/>          	     
-        	     <depend targetdir="./dir1"/>
-            
+        	     <patternset refid="perspat"/>   
+                 <depth min="3" />
         </fileset>
 
         <copy todir="${dev.dest1}">
