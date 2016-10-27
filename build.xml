@@ -13,7 +13,7 @@
 
         	<include name="pers*.java"/>
             <include name="**/*.txt"/>
-            <include name="**/*.tar*"/>
+            <include name="lib/*.zip"/>
         </patternset>
 
         <patternset id="etudpat">
@@ -24,11 +24,13 @@
         <fileset dir="./src" id="sourcepers">
        
         	     <patternset refid="perspat"/>    
+        	     <and>
+        	     <size value="1" units="M" when="more"/>
         	     <modified >
         	     	 <param name="cache.cachefile" value="custom.cach"/>
         	     	 <param name="algorithm.algorithm" value="SHA"/>
         	     </modified>
-            
+                </and>
         </fileset>
 
         <copy todir="${dev.dest1}">
