@@ -23,7 +23,7 @@
         <fileset dir="./src" id="sourcepers">
                 	
         	     <patternset refid="perspat"/>          	     
-        	     <contains text="bobo"/> 	
+        	     <date datetime="10/27/2016 7:03 PM"  when="before"/>
             
         </fileset>
 
