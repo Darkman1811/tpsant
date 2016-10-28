@@ -12,12 +12,16 @@
 	<mkdir dir="./ear" />
 	<mkdir dir="./dist"	/>
     <mkdir dir="./web/WEB-INF/classes"/>
-
-
-		<!-- compiling the java source -->
+    <!-- compiling the java source -->
 		<javac srcdir="./src" destdir="./build"  depend="true" includes="Personne.java" includeantruntime="true" listfiles="false" verbose="false"/> 
-       
-       <!-- packaging the ejb project -->
+
+    <!-- making zip -->     
+         <zip basedir="./build" destfile="./ear/proj.zip" includes="*.class" /> 
+
+    <!-- making tar.gzip-->      
+         <tar basedir="./build" destfile="./ear/proj.gzip.tar" compression="gzip" includes="*.class" /> 
+   		       
+     <!-- packaging the ejb project -->
         <jar basedir="./build" destfile="./ear/proj.jar" includes="*.class" /> 
  
       <!-- copying the servlet classes to the web project structure -->
@@ -28,23 +32,29 @@
          <war basedir="./web" destfile="./ear/proj.war"  includes="*.*" webxml="./web/WEB-INF/web.xml"/> 
          
 
-        <ear destfile="./dist/proj.ear" appxml="./ear/application.xml">
+        <ear destfile="./ear/proj.ear" appxml="./ear/application.xml">
              <fileset dir="./ear" includes="*.war,*.jar"/>
         </ear>
 
-        <checksum file="./dist/proj.ear" forceOverwrite="true" algorithm="SHA1"/> 
+        <checksum file="./ear/proj.ear" forceOverwrite="true" algorithm="SHA1"/> 
 	</target>
 
 	<target name="clean">
 		<delete >
 			<fileset dir="./build" includes="*.class"/>
-			<fileset dir="./ear" includes="*.jar,*.war,*.ear"/>
-			<fileset dir="./dist" includes="*.*"/>
+			<fileset dir="./ear" includes="*.jar,*.war,*.ear,*.zip,*.tar,*.SHA1"/>
+			<fileset dir="./dist" includes="**/*.*"/>
 			<fileset dir="./web/WEB-INF/classes" includes="*.class"/>
 		</delete>
 	    
 	</target>
     
-   
+   <target name="uncompress">
+   	<unzip src="./ear/proj.zip" dest="./dist/zip"/>
+   	<untar src="./ear/proj.gzip.tar" dest="./dist/tar" compression="gzip"/>
+   	<unwar src="./ear/proj.war" dest="./dist/war" />
+   	<unjar src="./ear/proj.jar" dest="./dist/jar"/>
+   	<unjar src="./ear/proj.ear" dest="./dist/ear"/>
+   </target>
 		
 </project>
