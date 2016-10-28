@@ -9,7 +9,8 @@
 
         <mkdir dir="./build"/>
 
-		<javac srcdir="./src" destdir="./build"  depend="true" includes="Personne.java" listfiles="true" verbose="true"/>
+		<javac srcdir="./src" destdir="./build"  depend="true" includes="Personne.java" includeantruntime="true" listfiles="false" verbose="false"/>
+		<java classpath="./build" classname="Personne" input="build.properties"  />
 		
 	</target>
 
