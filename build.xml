@@ -1,19 +1,13 @@
 <?xml version="1.0" ?>
-<project name="Hello Word Project" default="info">
+<project name="Hello Word Project" default="download">
 	
 	
     
 	
-	<target  name="info">		
-		<echo> Welcome to apache Ant </echo>
+	<target  name="download">		
+		<echo> Welcome to apache Ant: deploying </echo>
 
-        <property file="build.properties" />
-        <condition  property="port.isone"  value="dodo" else="baba">      			
-			<istrue  value="yes"/>
-	    </condition>	 
-        <echo message=" server online = ${port.isone} "/>
-        <input message="Veuillez entrer votre nom d'utilisateur." addproperty="dev.username"/> 
-        <echo message="${dev.username}"/>
+       <get src="http://download.java.net/glassfish/4.1.1/release/glassfish-4.1.1.zip" dest="./lib/glassfish-4.1.1.zip" verbose="true"/>
 		
 	</target>
 
