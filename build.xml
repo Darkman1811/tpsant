@@ -3,22 +3,47 @@
 	
 	
     
-	
-	<target  name="war">		
 		<echo> Welcome to apache Ant Packaging</echo>
-		
+	<!-- creating working dirs -->
+	
+	<target  name="war">
+   
+	<mkdir dir="./build"/>
+	<mkdir dir="./ear" />
+	<mkdir dir="./dist"	/>
+    <mkdir dir="./web/WEB-INF/classes"/>
+
+
+		<!-- compiling the java source -->
 		<javac srcdir="./src" destdir="./build"  depend="true" includes="Personne.java" includeantruntime="true" listfiles="false" verbose="false"/> 
-    
+       
+       <!-- packaging the ejb project -->
+        <jar basedir="./build" destfile="./ear/proj.jar" includes="*.class" /> 
+ 
+      <!-- copying the servlet classes to the web project structure -->
          <copy todir="./web/WEB-INF/classes">
          	<fileset dir="./build/" includes="*.class"/>
          </copy>
-         <war basedir="./web" destfile="./dist/proj.war"  includes="*.*" webxml="./web/WEB-INF/web.xml"/> 
-         <checksum file="./dist/proj.war" forceOverwrite="true" algorithm="SHA1"/> 
+      <!-- packaging the web project -->
+         <war basedir="./web" destfile="./ear/proj.war"  includes="*.*" webxml="./web/WEB-INF/web.xml"/> 
+         
 
+        <ear destfile="./dist/proj.ear" appxml="./ear/application.xml">
+             <fileset dir="./ear" includes="*.war,*.jar"/>
+        </ear>
 
+        <checksum file="./dist/proj.ear" forceOverwrite="true" algorithm="SHA1"/> 
 	</target>
 
-	
+	<target name="clean">
+		<delete >
+			<fileset dir="./build" includes="*.class"/>
+			<fileset dir="./ear" includes="*.jar,*.war,*.ear"/>
+			<fileset dir="./dist" includes="*.*"/>
+			<fileset dir="./web/WEB-INF/classes" includes="*.class"/>
+		</delete>
+	    
+	</target>
     
    
 		
