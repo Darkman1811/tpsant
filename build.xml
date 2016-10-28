@@ -7,21 +7,12 @@
 	<target  name="info">		
 		<echo> Welcome to apache Ant Packaging</echo>
 
-        <mkdir dir="./build"/>
-        <mkdir dir="./dist"/>
-
-		<javac srcdir="./src" destdir="./build"  depend="true" includes="Personne.java" includeantruntime="true" listfiles="false" verbose="false"/>
-		<java classpath="./build" classname="Personne"   />
-		<tar basedir="./build" destfile="./dist/proj.gzip.tar" compression="gzip" includes="*.class" />
-		<checksum file="./dist/proj.gzip.tar" forceOverwrite="true" algorithm="SHA1"/>
-
-		
+       <antcall target="finish"/>
 
 	</target>
     
-    <target name="clear">
-    	<delete dir="./build" />
-        <delete dir="./dist"/>
+    <target name="finish">
+    	<echo>End of the task </echo>
     </target>
 	
 		
