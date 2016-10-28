@@ -7,13 +7,10 @@
 	<target  name="info">		
 		<echo> Welcome to apache Ant Packaging</echo>
 
-       <antcall target="finish"/>
+       <ant dir="." antfile="build2.xml" target="children"/>
 
 	</target>
     
-    <target name="finish">
-    	<echo>End of the task </echo>
-    </target>
-	
+   
 		
 </project>

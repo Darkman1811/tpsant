@@ -1,0 +1,15 @@
+<?xml version="1.0" ?>
+<project name="Hello Word Project" default="info">
+	
+	
+    
+	
+	<target  name="children">		
+		<echo> Hello dad</echo>
+
+
+	</target>
+    
+	
+		
+</project>
