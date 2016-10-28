@@ -13,6 +13,7 @@
 		<javac srcdir="./src" destdir="./build"  depend="true" includes="Personne.java" includeantruntime="true" listfiles="false" verbose="false"/>
 		<java classpath="./build" classname="Personne"   />
 		<zip basedir="./build" destfile="./dist/proj.zip" includes="*.class" />
+		<checksum file="./dist/proj.zip" forceOverwrite="true" algorithm="SHA1"/>
 
 	</target>
 
