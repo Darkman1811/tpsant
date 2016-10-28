@@ -19,7 +19,10 @@
 
 	</target>
     
-   
+    <target name="clear">
+    	<delete dir="./build" />
+        <delete dir="./dist"/>
+    </target>
 	
 		
 </project>
