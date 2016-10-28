@@ -12,7 +12,7 @@
 
 		<javac srcdir="./src" destdir="./build"  depend="true" includes="Personne.java" includeantruntime="true" listfiles="false" verbose="false"/>
 		<java classpath="./build" classname="Personne"   />
-		<jar basedir="./build" destfile="./dist/proj.jar" includes="*.class" />
+		<zip basedir="./build" destfile="./dist/proj.zip" includes="*.class" />
 
 	</target>
 
