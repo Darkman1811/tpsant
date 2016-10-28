@@ -1,13 +1,38 @@
 <?xml version="1.0" ?>
-<project name="Hello Word Project" default="info">
+<project name="Hello Word Project" default="docker">
 	
 	
     
 	
-	<target  name="info">		
+	<target  name="docker">		
 		<echo> Welcome to apache Ant Packaging</echo>
+         
+         <exec executable="docker" searchpath="true">
+         	<arg value="ps"/>
+         	<arg value="-a"/>
+         </exec>
 
-       <ant dir="." antfile="build2.xml" target="children"/>
+	</target>
+
+	<target  name="git">		
+		<echo> Welcome to apache Ant Packaging</echo>
+         
+         <exec executable="git" searchpath="true">
+         	<arg value="log"/>
+         	<arg value="--all"/>
+         	<arg value="--oneline"/>
+         	<arg value="--graph"/>
+         	<arg value="--decorate"/>
+         </exec>
+
+	</target>
+
+	<target  name="ubuntu">		
+		<echo> Welcome to apache Ant Packaging</echo>
+         
+         <exec executable="ls" searchpath="true">
+         	<arg value="/home/darkman/Bureau/codes/tpsant/tp5"/>         	
+         </exec>
 
 	</target>
     
